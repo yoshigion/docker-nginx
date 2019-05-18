@@ -1,6 +1,6 @@
 FROM debian:stretch-slim
 
-LABEL maintainer="NGINX Docker Maintainers <docker-maint@nginx.com>"
+LABEL maintainer="a NGINX Docker User <obayashi.yoshimasa@seek-the-truth.org>"
 
 ENV NGINX_VERSION   1.16.0
 ENV NJS_VERSION     0.3.1

@@ -7,6 +7,11 @@ ENV NJS_VERSION     0.3.1
 ENV PKG_RELEASE     1~stretch
 
 RUN set -x \
+	&& ls -Rla /etc/apt/ \
+	&& echo "Acquire::http::Pipeline-Depth 0;"  > /etc/apt/apt.conf.d/99fixadproxy \
+	&& echo "Acquire::http::No-Cache true;"    >> /etc/apt/apt.conf.d/99fixadproxy \
+	&& echo "Acquire::BrokenProxy true;"       >> /etc/apt/apt.conf.d/99fixadproxy \
+	&& cat -A /etc/apt/apt.conf.d/99fixadproxy \
 	&& apt-get update \
 	&& apt-get install -y gnupg1 apt-transport-https ca-certificates \
 	&& \

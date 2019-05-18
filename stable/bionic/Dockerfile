@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM ubuntu:18.04
 
 LABEL maintainer="a NGINX Docker User <obayashi.yoshimasa@seek-the-truth.org>"
 
@@ -8,7 +8,7 @@ ENV PKG_RELEASE     1~stretch
 
 RUN set -x \
 	&& apt-get update \
-	&& apt-get install --no-install-recommends --no-install-suggests -y gnupg1 apt-transport-https ca-certificates \
+	&& apt-get install -y gnupg1 apt-transport-https ca-certificates \
 	&& \
 	NGINX_GPGKEY=573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62; \
 	found=''; \
